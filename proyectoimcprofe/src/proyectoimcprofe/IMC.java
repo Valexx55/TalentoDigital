@@ -32,6 +32,22 @@ public class IMC {
 		return resultadoIMC;
 	}
 	
+	public static String traducirIMC (float imc_numerico)
+	{
+		String imc_nominal = null;
+		
+		return imc_nominal;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
