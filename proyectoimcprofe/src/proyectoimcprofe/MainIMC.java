@@ -26,12 +26,54 @@ public class MainIMC {
 		int numero = 0;*/
 		Persona persona = null; //declaramos persona y la inicializamos
 		persona = new Persona(90, 2, "Carlos", 42);
+		Persona persona2 = new Persona(45, 1.60f, "María", 49);
 		
-		System.out.println(" Nombre " + " " + persona.nombre);
-		System.out.println(" Edad " + " " + persona.edad);
+		//persona.setNombre("Paco");
+		System.out.println(" Nombre " + " " + persona.getNombre());
+		System.out.println(" Edad " + " " + persona.getEdad());
+		
+		System.out.println(" Nombre " + " " + persona2.getNombre());
+		System.out.println(" Edad " + " " + persona2.getEdad());
+		
+		String cadena1 = "HOLA";
+		String cadena2 = "ADIÓS";
+		
+		System.out.println("Cadena 1 longitud = " + cadena1.length());
+		System.out.println("Cadena 2 longitud = " + cadena2.length());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		float imc_numerico = IMC.calculoIMC(persona.peso, persona.altura);
 		String imc_nominal = IMC.traducirIMC(imc_numerico);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		System.out.println(persona.nombre + " está en " + imc_numerico + " " + imc_nominal);
 		

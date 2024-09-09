@@ -18,6 +18,64 @@ public class Persona {
 		this.edad = edad;
 	}
 	
+	public Persona() {
+		// TODO Constructor por defecto
+		//esto crea una persona con peso 0, altura 0, nombre null y edad 0
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	public float getPeso() {
+		return this.peso;
+	}
+
+
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+
+
+	public float getAltura() {
+		return this.altura;
+	}
+
+
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public int getEdad() {
+		return this.edad;
+	}
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
 	
 	
 	
