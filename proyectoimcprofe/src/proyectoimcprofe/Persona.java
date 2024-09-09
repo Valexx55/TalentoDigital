@@ -19,6 +19,10 @@ public class Persona {
 	}
 	
 	
+	
+	
+	
+	
 	//TODO implementar el método mostrar persona
 	//mostrarPersona
 	

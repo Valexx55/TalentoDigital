@@ -20,18 +20,24 @@ public class MainIMC {
 		
 		System.out.println("Estamos empezando");
 		System.out.println("Vamos a calcular el IMC");
-		float resultado = IMC.calculoIMC(80f, 1.90f);
+		/*float resultado = IMC.calculoIMC(80f, 1.90f);
 		System.out.println("SU IMC ES " + resultado);
 		//creamos una persona
-		int numero = 0;
+		int numero = 0;*/
 		Persona persona = null; //declaramos persona y la inicializamos
 		persona = new Persona(90, 2, "Carlos", 42);
 		
 		System.out.println(" Nombre " + " " + persona.nombre);
 		System.out.println(" Edad " + " " + persona.edad);
 		
+		float imc_numerico = IMC.calculoIMC(persona.peso, persona.altura);
+		String imc_nominal = IMC.traducirIMC(imc_numerico);
+		
+		System.out.println(persona.nombre + " está en " + imc_numerico + " " + imc_nominal);
+		
 	
-		Scanner scanner = new Scanner(System.in);//creo un objeto escáner para leer de teclado
+		
+		/*Scanner scanner = new Scanner(System.in);//creo un objeto escáner para leer de teclado
 		System.out.println("Introduzca palabra");
 		String palabraIntroducida = scanner.next();
 		System.out.println("Palabra introducida = " + palabraIntroducida);
@@ -40,7 +46,7 @@ public class MainIMC {
 		System.out.println("La edad introducida es " + edad);
 		System.out.println("Intro peso");
 		float peso = scanner.nextFloat();
-		System.out.println("El peso intro es " + peso);
+		System.out.println("El peso intro es " + peso);*/
 		
 	}
 	
