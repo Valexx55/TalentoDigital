@@ -25,6 +25,8 @@ public class MainImc2 {
 		
 		//float numerofloatrandom = random.nextFloat(0f, 200f);
 		//System.out.println("El número float es " + numerofloatrandom);
+		String nombrePersonaMayor = null;
+		int edadPersonaMayor = 0;
 		
 		for (int i=0; i<5; i++) {
 			//crear la persona
@@ -38,17 +40,26 @@ public class MainImc2 {
 				//dar el nombre
 				String nombre = "p"+ i;
 				Persona persona = new Persona(peso, altura, nombre, edad);
+				//actualizar Persona mayor
+				//si la edad de la nueva persona es mayor que la edadPersonaMayor
+				if (persona.getEdad()>edadPersonaMayor)
+				{
+					nombrePersonaMayor = persona.getNombre();
+					edadPersonaMayor = persona.getEdad();
+				}
+					//actualizo edadmayor
+					//actualizo nombre de la edad mayor
+				persona.mostrarPersona();
 			//calcular el imc numérico
 				float imcnum = IMC.calculoIMC(persona.getPeso(), persona.getAltura());
 				//calcular el imc nominal
 				String imcnom = IMC.traducirIMC(imcnum);
 				//imprimo el resultado
 				System.out.println(persona.getNombre() + " está " + imcnom + "("+imcnum+")");
-				
-		
 		}
-		
-		
+		System.out.println("Se han creado "+ Persona.totalPersonas + " personas");
+		//TODO INFORMAR POR PANTALLA EL NOMBRE Y LA EDAD DE LA PERSONA MÁS MAYOR
+		System.out.println("NOMBRE MAYOR =  " +nombrePersonaMayor + " Edad mayor = " + edadPersonaMayor);
 	}
 }
 
