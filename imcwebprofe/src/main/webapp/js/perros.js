@@ -4,10 +4,27 @@
 function traerPerro() {
 	
 	fetch('https://dog.ceo/api/breeds/image/random')
-		.then(response => response.json())
-		.then(data => {
-			console.log(data);
-			document.getElementById("imagen").src = data.message;
+		.then(cuerpoRespuesta => cuerpoRespuesta.json())
+		.then(infoPerro => {
+			console.log(infoPerro);
+			document.getElementById("imagen").src = infoPerro.message;
 		}
 		);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

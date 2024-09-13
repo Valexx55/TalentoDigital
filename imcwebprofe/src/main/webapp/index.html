@@ -41,6 +41,7 @@
         }
 
         button {
+        	cursor: pointer;
             margin-top: 10px;
             padding: 10px 15px;
             background: #333333;
@@ -72,7 +73,7 @@
         }
     </style>
     <script>
-        function calcularIMC() {
+        function calcularIMCLocal() {
             const peso = parseFloat(document.getElementById('peso').value);
             const estatura = parseFloat(document.getElementById('estatura').value);
 
@@ -106,6 +107,17 @@
                 imagen.innerHTML = '<img src="img/Sobrepeso.jpg" alt="Obesidad">';
             }
         }
+        function calcularIMCRemoto() {
+           //TODO 
+           //1 SACAR TODOS LOS DATOS DEL FORMULARIO
+           let nombre = document.getElementById("nombre").value;
+           let peso = document.getElementById("peso").value;
+           let estatura = document.getElementById("estatura").value;
+           let edad =  document.getElementById("edad").value;
+           console.log ("NOmbre = " + nombre + " peso = " + peso +" Estatura = "  + estatura + " edad = " + edad);
+           //2 CON LOS DATOS DEL PUNTO 1, CREAR UN OBJETO JAVASCRIPT PERSONA
+           //3 CONVERTIR EL OBJETO DEL PUNTO 2 A JSON PARA SU TRANSMISIÓN AL SERVIDOR - SERIALIZAR -
+        }
     </script>
 </head>
 <body>
@@ -115,7 +127,7 @@
 
     <main>
         <section id="datos-personales">
-            <form onsubmit="event.preventDefault(); calcularIMC();">
+            <form onsubmit="event.preventDefault(); calcularIMCRemoto();">
                 <legend>Introduce tus datos</legend>
                 <label>Nombre:</label>
                 <input type="text" id="nombre" required><br>
