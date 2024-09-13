@@ -1,6 +1,7 @@
 package ejerciciosobligatorios;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Random;
 
 //TODO ordenación
@@ -20,6 +21,8 @@ public class MainArrays {
 
 		Arrays.sort(arrayPrimos);
 		mostrarArray(arrayPrimos);
+		System.out.println("\n\t for each");
+		mostrarArray2(arrayPrimos);
 	}
 
 	public static int generarNumeroAleatorio(int limiteinferior, int limitesuperior) {
@@ -107,7 +110,26 @@ public class MainArrays {
 			System.out.print(array[i] + ", ");
 		}
 	}
+	
+	public static void mostrarArray2 (int[] array) {
+		//for each
+		for (int n : array)
+		{
+			System.out.println(n);
+		}
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static int[] crearArrayAleatoriosPrimosNoRepetidos(int limiteInferior, int limiteSuperior)
