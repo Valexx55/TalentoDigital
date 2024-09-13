@@ -1,5 +1,6 @@
 package ejerciciosobligatorios;
 
+import java.util.Arrays;
 import java.util.Random;
 
 //TODO ordenación
@@ -17,6 +18,8 @@ public class MainArrays {
 
 		System.out.println("Máximo = " + maximo + " Mínimo = " + minimo + " Media = " + media);
 
+		Arrays.sort(arrayPrimos);
+		mostrarArray(arrayPrimos);
 	}
 
 	public static int generarNumeroAleatorio(int limiteinferior, int limitesuperior) {
