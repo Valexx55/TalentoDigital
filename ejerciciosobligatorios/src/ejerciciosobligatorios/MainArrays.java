@@ -3,6 +3,7 @@ package ejerciciosobligatorios;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 //TODO ordenación
 
@@ -23,6 +24,31 @@ public class MainArrays {
 		mostrarArray(arrayPrimos);
 		System.out.println("\n\t for each");
 		mostrarArray2(arrayPrimos);
+		
+		//STREAM - JAVA 8 
+		IntStream is = Arrays.stream(arrayPrimos);
+		double medias = is.average().getAsDouble();//calcula la media
+		IntStream is2 = Arrays.stream(arrayPrimos);
+		int maximos = is2.max().getAsInt();
+		IntStream is3 = Arrays.stream(arrayPrimos);
+		int minimos = is3.min().getAsInt();
+		System.out.println("Máximo stream = " + maximos + " Mínimo stream = " + minimos + " Media stream = " + medias);
+		//System.out.println( "Media stream = " + medias);
+		IntStream is4 = Arrays.stream(arrayPrimos);
+		is4.min().ifPresent(min -> System.out.println(min));
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	public static int generarNumeroAleatorio(int limiteinferior, int limitesuperior) {
@@ -151,7 +177,7 @@ public class MainArrays {
 				}
 			} else {
 				//sigo buscando
-				System.out.println("El número generado " + numeroAleatorio +"no sirve");
+				//System.out.println("El número generado " + numeroAleatorio +"no sirve");
 			}
 			
 		} while (!completado);

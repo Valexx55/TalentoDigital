@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CalculaIMC</display-name>
+    <servlet-name>CalculaIMC</servlet-name>
+    <servlet-class>talento.imc.CalculaIMC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalculaIMC</servlet-name>
+    <url-pattern>/CalculaIMC</url-pattern>
+  </servlet-mapping>
 </web-app>
