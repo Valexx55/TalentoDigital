@@ -46,6 +46,7 @@ public class Dni {
 		Dni dnivale = new Dni(53130984);
 		
 		char letraCalculada = dnivale.calcularLetraDNI();
+		dnivale.setLetra(letraCalculada);
 		
 		System.out.println("La letra de Vale es " + letraCalculada);
 	}
