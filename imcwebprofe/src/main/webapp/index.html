@@ -109,25 +109,26 @@
         }
         function calcularIMCRemoto() {
            //TODO 
-           //1 SACAR TODOS LOS DATOS DEL FORMULARIO
+           //1 RECOGER DATOS FORULARIO
            let nombre = document.getElementById("nombre").value;
            let peso = document.getElementById("peso").value;
            let estatura = document.getElementById("estatura").value;
            let edad =  document.getElementById("edad").value;
            console.log ("NOmbre = " + nombre + " peso = " + peso +" Estatura = "  + estatura + " edad = " + edad);
-           //2 CON LOS DATOS DEL PUNTO 1, CREAR UN OBJETO JAVASCRIPT PERSONA
+           //2 CREAR OBJETO JAVASCRIPT
            let persona = {
         	   nombre: nombre,
         	   peso: peso,
         	   altura: estatura,
         	   edad: edad,
            };
-           //3 CONVERTIR EL OBJETO DEL PUNTO 2 A JSON PARA SU TRANSMISIÓN AL SERVIDOR - SERIALIZAR -
+           //3 SERIALIZO A JSON PARA SU TRANSMISIÓN AL SERVIDOR - SERIALIZAR -
            let personaJSON = JSON.stringify(persona);//serializo la persona a JSON
+           //4 ENVIO PETICIÓN AL SERVIDOR
            fetch("http://localhost:8080/imcwebprofe/CalculaIMC", {
         	   method: "POST",
         	   body: personaJSON
-        	 })
+        	 })//12 ACTUALIZO LA INTERFAZ DE USUARIO
            .then(cuerpoRespuesta => cuerpoRespuesta.json())
      	   .then(infoIMC => {
     			console.log("Resultado " + infoIMC.imcNumerico + " " +infoIMC.imcNominal);
