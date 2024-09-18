@@ -1,5 +1,7 @@
 package proyectoimcprofe;//paquete carpeta que agrupa clases por familia
 
+import java.lang.reflect.Field;
+
 public class Persona {
 
 	/** atributos/propiedades/campos de la clase **/
@@ -38,12 +40,12 @@ public class Persona {
 		System.out.println("Pesa " + this.peso + " kg, mide " + this.altura + "metros, se llama " + this.nombre + " y su edad es " + this.edad);
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Persona p1 = new Persona(60, 2, "Juan", 33);
 		Persona p2 = new Persona(60, 2, "Paco", 43);
 		p1.mostrarPersona();
 		p2.mostrarPersona();
-	}
+	}*/
 
 	public float getPeso() {
 		return this.peso;
@@ -85,5 +87,18 @@ public class Persona {
 	// existe un método especial, llamado constructor, que me permite
 	// crear variables de una clase. Este método se llama igual que el
 	// nombre de la clase y pueden existir varias versiones
+	
+	public static void main(String[] args) {
+		Field[] fields = Persona.class.getDeclaredFields();
+		
+		for (Field campo : fields)
+		{
+			System.out.println(campo);
+		}
+		
+		
+		
+		
+	}
 
 }

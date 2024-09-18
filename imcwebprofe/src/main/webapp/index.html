@@ -132,8 +132,30 @@
      	   .then(infoIMC => {
     			console.log("Resultado " + infoIMC.imcNumerico + " " +infoIMC.imcNominal);
     			//TODO pintar resultado y gestionar errores
-    		}
-    		);
+    			let elementoResultado = document.getElementById ("resultado");
+    			elementoResultado.innerHTML = "Resultado " + infoIMC.imcNumerico + " " +infoIMC.imcNominal;
+    			let elementoImg = document.createElement('img');
+    			switch (infoIMC.imcNominal) {
+    			  case 'DESNUTRIDO':
+    			    elementoImg.src='img/desnutrido.jpg';
+    			    break;
+    			  case 'DELGADO':
+    				  elementoImg.src='img/delgado.jpg';
+      			    break;
+    			  case 'IDEAL':
+    				  elementoImg.src='img/ideal.jpg';
+      			    break;
+    			  case 'SOBREPESO':
+    				  elementoImg.src='img/sobrepeso.jpg';
+      			    break;
+    			  case 'OBESO':
+    				  elementoImg.src='img/obeso.jpg';
+      			    break;
+    			  }
+    			document.getElementById ('imagen-resultado').innerHTML="";
+    			document.getElementById ('imagen-resultado').appendChild(elementoImg);
+     	   }
+    		).catch (error1 => console.error(error1));
         }
     </script>
 </head>
@@ -162,7 +184,7 @@
                 <button type="reset">Limpiar</button>
             </form>
 
-            <div id="resultado"></div>
+            <div id="resultado"></div><!-- hook o punto de anclaje -->
             <div id="imagen-resultado"></div>
         </section>
     </main>
