@@ -2,6 +2,10 @@ package proyectoimcprofe;//paquete carpeta que agrupa clases por familia
 
 import java.lang.reflect.Field;
 
+
+//TODAS LAS PERSONAS TIENEN UN DNI
+//Y DEL DNI, ME INTERESA SÓLO EL NÚMERO Y LA LETRA
+//MODIFICAD LAS CLASES DE JAVA, PARA RECOGER ESA INFORMACIÓN
 public class Persona {
 
 	/** atributos/propiedades/campos de la clase **/
@@ -12,6 +16,17 @@ public class Persona {
 	float altura;
 	String nombre;
 	int edad;
+	Dni dni;
+	
+	
+
+	public Dni getDni() {
+		return dni;
+	}
+
+	public void setDni(Dni dni) {
+		this.dni = dni;
+	}
 
 	public Persona(float peso, float altura, String nombre, int edad) {
 		super();
