@@ -37,19 +37,23 @@ public class CalculaIMC extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1 PROCESO PETICIÓN
-		String nombre = request.getParameter("nombre");
+		/*String nombre = request.getParameter("nombre");
 		String edad = request.getParameter("edad");
 		String peso = request.getParameter("peso");
-		String altura = request.getParameter("altura");
-		System.out.println("NOMBRE = " + nombre + " EDAD " + edad + " Peso "+peso+ " Altura "+ altura);
+		String altura = request.getParameter("altura");*/
+		//recibimos el JSON
+		Gson gson = new Gson();
+		String jsonPersona = request.getReader().readLine();//leo el cuerpo
+		Persona persona = gson.fromJson(jsonPersona, Persona.class);//lo paso a objeto JSON A JAVA
+		//System.out.println("NOMBRE = " + nombre + " EDAD " + edad + " Peso "+peso+ " Altura "+ altura);
 		//2 CALCULO EL IMC
-		Persona persona = new Persona(Float.parseFloat(peso), Float.parseFloat(altura), nombre, Integer.parseInt(edad));
+		//Persona persona = new Persona(Float.parseFloat(peso), Float.parseFloat(altura), nombre, Integer.parseInt(edad));
 		float imc_numerico = IMC.calculoIMC(persona.getPeso(), persona.getAltura());
 		String imc_nominal = IMC.traducirIMC(imc_numerico);
 		//3 GENERAMOS LA RESPUESTA
 		ResultadoIMC resultadoIMC = new ResultadoIMC(imc_numerico, imc_nominal);
 		//convertir resultadoIMC a JSON 
-		Gson gson = new Gson();
+		
 		String resultadoIMCJson = gson.toJson(resultadoIMC);
 		//y para ello, me ayudo de la librería gson
 		response.setContentType("application/json");//con esto indicamos el tipo de info que viaja en el cuerpo
