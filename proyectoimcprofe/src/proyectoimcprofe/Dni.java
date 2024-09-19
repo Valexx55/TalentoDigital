@@ -10,7 +10,7 @@ public class Dni {
 	// seguid las instrucciones
 	// https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/dni/calculo-del-digito-de-control-del-nif-nie/
 
-	private static final char[] LETRAS_DNI = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
+	public static final char[] LETRAS_DNI = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
 			'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
 
 	public Dni(int numero, char letra) {
