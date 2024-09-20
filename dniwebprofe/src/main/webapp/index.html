@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario DNI</title>
+    <style type="text/css">
+        header {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1px;
+        }
+        
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1px;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        form label {
+            display: inline-block;
+            width: 150px;
+            margin-top: 10px;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 1px;
+            margin-bottom: 1px;
+            width: 85%;
+            border: 2px solid green;
+            padding: 10px;
+            margin: 30px;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        button {
+        	cursor: pointer;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #333333;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        legend {
+            color: green;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 70px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        #imagen-resultado {
+            margin-top: 20px;
+        }
+
+        #imagen-resultado img {
+            max-width: 300px;
+            border-radius: 15px;
+        }
+    </style>
+    <script>
+        
+        function calculaLetraDniRemoto() {
+           //TODO 
+           //1 RECOGER DATOS FORULARIO
+           let numero = document.getElementById("numero").value;
+           console.log ("Numero = " + numero );
+           //2 CREAR OBJETO JAVASCRIPT
+           let dni = {
+        	   numero: numero,
+        	 };
+           //3 SERIALIZO A JSON PARA SU TRANSMISIÓN AL SERVIDOR - SERIALIZAR -
+           let dniJSON = JSON.stringify(dni);//serializo la persona a JSON
+           //4 ENVIO PETICIÓN AL SERVIDOR
+           fetch("http://localhost:8080/dniwebprofe/CalculaLetraDni", {
+        	   method: "POST",
+        	   body: dniJSON
+        	 })//12 ACTUALIZO LA INTERFAZ DE USUARIO
+           .then(cuerpoRespuesta => cuerpoRespuesta.json())
+     	   .then(infoDni => {
+    			console.log("Su letra de dni es " + infoDni.letra);
+    			window.alert("Su letra de dni es " + infoDni.letra);
+    			
+    			//TODO pintar resultado y gestionar errores
+     	   }
+    		).catch (error1 => console.error(error1));
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Formulario DNI</h1>
+    </header>
+
+    <main>
+        <section id="datos-personales">
+            <form>
+                <legend>Introduce tus datos</legend>
+                <label>Número:</label>
+                <input type="number" id="numero" required><br>
+                
+
+                <button onclick="calculaLetraDniRemoto();">Enviar</button>
+                <button type="reset">Limpiar</button>
+            </form>
+
+            <div id="resultado"></div><!-- hook o punto de anclaje -->
+            <div id="imagen-resultado"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos los derechos reservados - Formulario de Datos</p>
+    </footer>
+</body>
+</html>
