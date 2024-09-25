@@ -99,14 +99,21 @@
         	   method: "POST",
         	   body: dniJSON
         	 })//12 ACTUALIZO LA INTERFAZ DE USUARIO
-           .then(cuerpoRespuesta => cuerpoRespuesta.json())
+           .then(cuerpoRespuesta => {
+        	   console.log("el status es "+cuerpoRespuesta.status);
+        	   cuerpoRespuesta.json();
+        	   }
+           )
      	   .then(infoDni => {
     			console.log("Su letra de dni es " + infoDni.letra);
     			window.alert("Su letra de dni es " + infoDni.letra);
-    			
-    			//TODO pintar resultado y gestionar errores
      	   }
-    		).catch (error1 => console.error(error1));
+    		).catch (error1 => {
+    			window.alert ("En sección error catch");
+    			console.error(error1);
+    			}
+    		);
+  
         }
     </script>
 </head>

@@ -5,8 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import talento.dni.bd.DniRepository;
+
 import java.io.IOException;
 import java.net.http.HttpClient;
+import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
@@ -44,13 +47,45 @@ public class CalculaLetraDni extends HttpServlet {
 		char letra = dnirecibido.calcularLetraDNI();
 		dnirecibido.setLetra(letra);
 		
-		String dniRespuestaJson = gson.toJson(dnirecibido);
-		response.getWriter().write(dniRespuestaJson);
-		//response.setStatus(HttpServletResponse.SC_OK);//Usando constantes
-		response.setStatus(200);
-		response.setContentType("application/json");
-	
+		DniRepository dniRepository = new DniRepository();
+		try {
+			
+			dniRepository.insertarDni(dnirecibido);
+			String dniRespuestaJson = gson.toJson(dnirecibido);
+			response.getWriter().write(dniRespuestaJson);
+			
+			response.setStatus(200);
+			response.setContentType("application/json");
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			response.setStatus(500);
+			response.setContentType("application/json");
+			response.getWriter().write("{\"error\": "+e.toString()+"}");
+		}
+		
+		
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

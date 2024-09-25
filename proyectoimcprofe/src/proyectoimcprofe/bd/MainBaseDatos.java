@@ -25,13 +25,34 @@ public class MainBaseDatos {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery("SELECT * FROM bddni.persona");
 			//TODO recorrer los resultados y mostrar con WHILE
+			while (resultSet.next())
+			{
+				String nombre = resultSet.getString("nombre");
+				int edad = resultSet.getInt(3);
+				int id = resultSet.getInt("idpersona");
+				System.out.println(id +" " +nombre + " " + edad);
+			}
+			connection.close();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 			//en este bloque de código, es como
 			//un airbag o un salvavidas
+		}finally {
+			//esta sección se ejecuta haya habido fallo o no
+			//sería el sitio ideal para cerr
 		}
+		
+		
+		System.out.println("eL PROGRAMA HA TERMINADO");
 		
 	}
 
 }
+
+
+
+
+
+
