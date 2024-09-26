@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import talento.dni.bd.DniRepository;
+import talento.dni.repository.DniRepository;
 
 import java.io.IOException;
 import java.net.http.HttpClient;

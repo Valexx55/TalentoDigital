@@ -101,7 +101,7 @@
         	 })//12 ACTUALIZO LA INTERFAZ DE USUARIO
            .then(cuerpoRespuesta => {
         	   console.log("el status es "+cuerpoRespuesta.status);
-        	   cuerpoRespuesta.json();
+        	   return cuerpoRespuesta.json();
         	   }
            )
      	   .then(infoDni => {
@@ -124,7 +124,7 @@
 
     <main>
         <section id="datos-personales">
-            <form>
+            <form onsubmit="event.preventDefault();">
                 <legend>Introduce tus datos</legend>
                 <label>Número:</label>
                 <input type="number" id="numero" required><br>
@@ -133,7 +133,7 @@
                 <button onclick="calculaLetraDniRemoto();">Enviar</button>
                 <button type="reset">Limpiar</button>
             </form>
-
+			<a href="listado.html">VER LISTADO</a>
             <div id="resultado"></div><!-- hook o punto de anclaje -->
             <div id="imagen-resultado"></div>
         </section>

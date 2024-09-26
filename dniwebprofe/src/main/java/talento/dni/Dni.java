@@ -30,6 +30,13 @@ public class Dni {
 		//El constrcutor por defecto, casi siempre se pone
 		//Es obligatorio para definir "BIEN" un BEAN
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Dni [numero=" + numero + ", letra=" + letra + "]";
+	}
 
 
 
@@ -56,10 +63,6 @@ public class Dni {
 		System.out.println("La letra de Vale es " + letraCalculada);
 	}
 	
-	
-	
-	
-
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}

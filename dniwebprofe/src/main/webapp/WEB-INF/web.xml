@@ -19,4 +19,14 @@
     <servlet-name>CalculaLetraDni</servlet-name>
     <url-pattern>/CalculaLetraDni</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletListadoDni</display-name>
+    <servlet-name>ServletListadoDni</servlet-name>
+    <servlet-class>talento.dni.controlador.ServletListadoDni</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletListadoDni</servlet-name>
+    <url-pattern>/ServletListadoDni</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,17 +1,25 @@
-package talento.dni.bd;
+package talento.dni.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import talento.dni.Dni;
 
+/**
+ * Todas las operaciones sobre la base datos
+ * y la tabla DNI van a aquí
+ */
 public class DniRepository {
 	
 	//INSERT INTO `bddni`.`dni` (`numero`, `letra`) VALUES ('53130984', 'H');
 	
 	public static final String INSTRUCCION_INSERTAR_DNI = "INSERT INTO `bddni`.`dni` (`numero`, `letra`) VALUES (?, ?)";
+	public static final String INSTRUCCION_CONSULTA_DNI = "SELECT *  FROM `bddni`.`dni`";
 	
 	public void insertarDni (Dni dni) throws SQLException
 	{
@@ -24,4 +32,26 @@ public class DniRepository {
 		Pool.liberarRecursos(conexion, ps, null);
 	}
 
+	public List<Dni> consultarTodos () throws SQLException
+	{
+		List<Dni> listaDni = null;
+		
+			//TODO Conectarme a la base de datos  y leer los dni
+			Connection connection =  Pool.getConnection();
+			Statement statement =  connection.createStatement();
+			ResultSet rs = statement.executeQuery(INSTRUCCION_CONSULTA_DNI);
+			listaDni = new ArrayList<Dni>();
+			while (rs.next())
+			{
+				int numero = rs.getInt("numero");
+				String letra = rs.getString("letra");
+				Dni dni = new Dni(numero, letra.charAt(0));
+				listaDni.add(dni);
+			}
+			Pool.liberarRecursos(connection, statement, rs);
+		
+		return listaDni;
+	}
+	
+	
 }
