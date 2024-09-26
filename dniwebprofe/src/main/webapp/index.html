@@ -99,9 +99,14 @@
         	   method: "POST",
         	   body: dniJSON
         	 })//12 ACTUALIZO LA INTERFAZ DE USUARIO
-           .then(cuerpoRespuesta => {
-        	   console.log("el status es "+cuerpoRespuesta.status);
-        	   return cuerpoRespuesta.json();
+           .then(respuesta => {
+        	   console.log("el status es "+respuesta.status);
+        	   if (respuesta.status!=200)
+        		   {
+     
+        		   throw new Error('Error del servidor');
+        		   }
+        	   return respuesta.json();
         	   }
            )
      	   .then(infoDni => {
@@ -109,7 +114,7 @@
     			window.alert("Su letra de dni es " + infoDni.letra);
      	   }
     		).catch (error1 => {
-    			window.alert ("En sección error catch");
+    			//window.alert ("En sección error catch");
     			console.error(error1);
     			}
     		);

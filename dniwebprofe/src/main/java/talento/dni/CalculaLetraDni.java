@@ -47,7 +47,7 @@ public class CalculaLetraDni extends HttpServlet {
 		char letra = dnirecibido.calcularLetraDNI();
 		dnirecibido.setLetra(letra);
 		
-		DniRepository dniRepository = new DniRepository();
+		DniRepository dniRepository = null;//new DniRepository();
 		try {
 			
 			dniRepository.insertarDni(dnirecibido);
@@ -57,7 +57,7 @@ public class CalculaLetraDni extends HttpServlet {
 			response.setStatus(200);
 			response.setContentType("application/json");
 		
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			response.setStatus(500);
 			response.setContentType("application/json");
