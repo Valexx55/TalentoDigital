@@ -40,10 +40,10 @@ public class ServletListadoDni extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		//System.out.println("Peticion GET en el servlet");
 		log.debug("Petición GET en el Servlet ServletListadoDni");
-		DniService dniService = null;//new DniService();
+		DniService dniService = new DniService();
 		try {
 			 List<Dni> listaDni =  dniService.recuperarListadoDni();
-			 Gson gson = null;//new Gson();
+			 Gson gson = new Gson();
 			 String listaJsonDni = gson.toJson(listaDni);
 			 response.getWriter().write(listaJsonDni);
 			 response.setStatus(200);
