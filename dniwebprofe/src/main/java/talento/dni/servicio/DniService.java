@@ -17,5 +17,31 @@ public class DniService {
 		
 		return listaDni;
 	}
+	
+	public void borrarDniPorId (int id) throws SQLException {
+		DniRepository dniRepository = null;
+		
+			dniRepository = new DniRepository();
+			dniRepository.borrarDni(id);
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

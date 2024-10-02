@@ -29,4 +29,14 @@
     <servlet-name>ServletListadoDni</servlet-name>
     <url-pattern>/ServletListadoDni</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletBorrarDni</display-name>
+    <servlet-name>ServletBorrarDni</servlet-name>
+    <servlet-class>talento.dni.controlador.ServletBorrarDni</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletBorrarDni</servlet-name>
+    <url-pattern>/ServletBorrarDni</url-pattern>
+  </servlet-mapping>
 </web-app>

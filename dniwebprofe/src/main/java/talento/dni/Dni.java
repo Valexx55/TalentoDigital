@@ -4,6 +4,7 @@ public class Dni {
 
 	private int numero;
 	private char letra;
+	private int id;
 
 	// TODO añadid una función a esta clase,
 	// para que dado un dni, se pueda calcular su letra
@@ -20,6 +21,27 @@ public class Dni {
 	}
 	
 	
+
+	public Dni(int numero, char letra, int id) {
+		super();
+		this.numero = numero;
+		this.letra = letra;
+		this.id = id;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public Dni(int numero) {
 		super();
