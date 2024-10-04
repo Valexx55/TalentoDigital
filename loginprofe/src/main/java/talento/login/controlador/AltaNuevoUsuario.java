@@ -10,8 +10,10 @@ import jakarta.servlet.http.Part;
 import talento.login.bean.Usuario;
 import talento.login.service.UsuarioService;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * Servlet implementation class AltaNuevoUsuario
@@ -48,6 +50,9 @@ public class AltaNuevoUsuario extends HttpServlet {
 	    byte[] foto = filePart.getInputStream().readAllBytes();
 	    String fileName = filePart.getSubmittedFileName();
 	    System.out.println("Fichero subido = " + fileName);
+	    
+	    String rutaFotoPerfil = EscuchaInicioFinLogin.RUTAS_FOTO+File.separator+"foto"+new Date().getTime();
+	    //TODO GUARDAR FOTO EN CARPETA DEL SERVIDOR y la RUTA EN LA BD
 	    
 	    Usuario nuevoUsuario = new Usuario(0, usuario, password, foto);
 	    

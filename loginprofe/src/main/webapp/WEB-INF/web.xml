@@ -29,4 +29,7 @@
     <servlet-name>AltaNuevoUsuario</servlet-name>
     <url-pattern>/AltaNuevoUsuario</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>talento.login.controlador.EscuchaInicioFinLogin</listener-class>
+  </listener>
 </web-app>
