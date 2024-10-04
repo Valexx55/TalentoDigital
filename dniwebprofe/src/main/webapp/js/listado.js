@@ -1,5 +1,11 @@
 window.onload = pedirListadoDni;
 
+function ordenar(a,b)
+{
+	console.log("El usuario ha tocado ordenar");
+	return a.numero - b.numero;
+}
+
 function pedirListadoDni()
 {
 	console.log("Pidiendo datos al servidor . . .");
@@ -12,6 +18,12 @@ function pedirListadoDni()
 	.then(listadoDni => {
 		console.log ("listado de dni recibido "+listadoDni.length );
 		//pillo el ul
+		listadoDni.sort(ordenar);
+		listadoDni = listadoDni.filter((dni)=> {
+			if (dni.letra == 'B')
+			return true;
+			else return false;
+		})
 		let ulista = document.getElementById("tablaDni");
 		listadoDni.forEach(dni=>{
 			//creo un li y lo voy añadiendo

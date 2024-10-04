@@ -39,4 +39,7 @@
     <servlet-name>ServletBorrarDni</servlet-name>
     <url-pattern>/ServletBorrarDni</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>talento.dni.controlador.InicioFinAppWeb</listener-class>
+  </listener>
 </web-app>
