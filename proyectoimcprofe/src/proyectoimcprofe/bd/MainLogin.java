@@ -21,6 +21,8 @@ public class MainLogin {
 		ResultSet resultSet = null;
 		
 		try {
+			//O leer las propiedades
+			
 			//1 CARGO EL DRIVER
 			driver = new com.mysql.cj.jdbc.Driver();
 			DriverManager.registerDriver(driver);
