@@ -32,4 +32,13 @@
   <listener>
     <listener-class>talento.login.controlador.EscuchaInicioFinLogin</listener-class>
   </listener>
+  <filter>
+    <display-name>FiltroLogin</display-name>
+    <filter-name>FiltroLogin</filter-name>
+    <filter-class>talento.login.controlador.FiltroLogin</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroLogin</filter-name>
+    <url-pattern>/FiltroLogin</url-pattern>
+  </filter-mapping>
 </web-app>

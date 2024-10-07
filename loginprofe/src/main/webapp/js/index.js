@@ -21,7 +21,7 @@ function loginServidor() {
 					alert ("La autencicación ha ido bien");
 					window.location.href="bienvenida.html";
 					break;
-				case 400:
+				case 403:
 					console.log("No existe ese usuario passoword");
 					alert("No existe ese usuario passoword");
 					break;

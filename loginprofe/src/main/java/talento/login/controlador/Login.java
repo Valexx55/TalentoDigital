@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 					response.setStatus(200);
 				} else {
 					System.out.println("El usuario NO existe");
-					response.setStatus(400);
+					response.setStatus(403);
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
