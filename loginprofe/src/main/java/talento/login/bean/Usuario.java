@@ -6,9 +6,32 @@ public class Usuario {
 	private String usuario;
 	private String password;
 	private byte[] foto;
+	private String rutaFoto;
 	
 	
 	
+	
+	
+
+	public String getRutaFoto() {
+		return rutaFoto;
+	}
+
+
+	public void setRutaFoto(String rutaFoto) {
+		this.rutaFoto = rutaFoto;
+	}
+
+
+	public Usuario(int idusuario, String usuario, String password, byte[] foto, String rutaFoto) {
+		super();
+		this.idusuario = idusuario;
+		this.usuario = usuario;
+		this.password = password;
+		this.foto = foto;
+		this.rutaFoto = rutaFoto;
+	}
+
 
 	public byte[] getFoto() {
 		return foto;

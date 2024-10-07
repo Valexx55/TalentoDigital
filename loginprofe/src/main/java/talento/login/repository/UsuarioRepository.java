@@ -10,7 +10,7 @@ import talento.login.bean.Usuario;
 public class UsuarioRepository {
 
 	public static final String EXISTE_USUARIO = "SELECT * FROM bddni.usuarios WHERE usuario = ? AND password = ?";
-	public static final String INSERTAR_USUARIO = "INSERT INTO `bddni`.`usuarios` (`usuario`, `password`, `foto`) VALUES (?,?,?);";
+	public static final String INSERTAR_USUARIO = "INSERT INTO `bddni`.`usuarios` (`usuario`, `password`, `foto`, `rutafoto`) VALUES (?,?,?,?);";
 
 	public boolean existeUsuario(Usuario usuario) throws SQLException {
 		boolean existe = false;
@@ -33,6 +33,7 @@ public class UsuarioRepository {
 		ps.setString(1, usuario.getUsuario());
 		ps.setString(2, usuario.getPassword());
 		ps.setBinaryStream(3, new ByteArrayInputStream(usuario.getFoto()), usuario.getFoto().length);
+		ps.setString(4, usuario.getRutaFoto());
 		ps.executeUpdate();
 
 		Pool.liberarRecursos(connection, ps, null);

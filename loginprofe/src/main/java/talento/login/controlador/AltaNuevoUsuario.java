@@ -12,6 +12,9 @@ import talento.login.service.UsuarioService;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -53,8 +56,11 @@ public class AltaNuevoUsuario extends HttpServlet {
 	    
 	    String rutaFotoPerfil = EscuchaInicioFinLogin.RUTAS_FOTO+File.separator+"foto"+new Date().getTime();
 	    //TODO GUARDAR FOTO EN CARPETA DEL SERVIDOR y la RUTA EN LA BD
+	    //guardo fichero
+	    Path fichero = Path.of(rutaFotoPerfil);
+	    Files.copy(filePart.getInputStream(), fichero, StandardCopyOption.REPLACE_EXISTING);
 	    
-	    Usuario nuevoUsuario = new Usuario(0, usuario, password, foto);
+	    Usuario nuevoUsuario = new Usuario(0, usuario, password, foto, rutaFotoPerfil);
 	    
 		UsuarioService usuarioService = new UsuarioService();
 		
